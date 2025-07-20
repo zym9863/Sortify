@@ -1,3 +1,4 @@
+# [English](./README_EN.md) | [中文](./README.md)
 # Sortify - 排序即服务
 
 一个基于 Fastify 后端和 Vue 前端的交互式排序算法可视化器和性能分析平台。
