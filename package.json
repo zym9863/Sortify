@@ -1,0 +1,42 @@
+{
+  "name": "sortify",
+  "version": "1.0.0",
+  "description": "排序即服务 - 交互式排序算法可视化器和性能分析平台",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
+    "dev:backend": "cd backend && pnpm run dev",
+    "dev:frontend": "cd frontend && pnpm run dev",
+    "build": "pnpm run build:frontend && pnpm run build:backend",
+    "build:frontend": "cd frontend && pnpm run build",
+    "build:backend": "cd backend && pnpm run build",
+    "start": "cd backend && pnpm start",
+    "test": "pnpm run test:backend && pnpm run test:frontend",
+    "test:backend": "cd backend && pnpm test",
+    "test:frontend": "cd frontend && pnpm test"
+  },
+  "keywords": [
+    "sorting",
+    "algorithms",
+    "visualization",
+    "performance",
+    "fastify",
+    "vue"
+  ],
+  "author": "Sortify Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "axios": "^1.10.0",
+    "chart.js": "^4.5.0",
+    "element-plus": "^2.10.4",
+    "vue-chartjs": "^5.3.2"
+  }
+}
