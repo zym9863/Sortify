@@ -233,10 +233,10 @@ const toggleAnalysis = () => {
 }
 
 .app-header {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 24px 0;
 }
 
 .header-content {
@@ -244,6 +244,7 @@ const toggleAnalysis = () => {
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  line-height: 1.5;
 }
 
 .app-title {

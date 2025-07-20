@@ -257,22 +257,45 @@ onMounted(() => {
 
 .algorithm-card {
   border: 2px solid #e4e7ed;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(to bottom, #ffffff, #fafafa);
+  position: relative;
+  overflow: hidden;
+}
+
+.algorithm-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
 }
 
 .algorithm-card:hover {
-  border-color: #409eff;
-  box-shadow: 0 2px 12px rgba(64, 158, 255, 0.1);
+  border-color: #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  transform: translateY(-3px);
+}
+
+.algorithm-card:hover::before {
+  transform: translateY(0);
 }
 
 .algorithm-card.selected {
-  border-color: #409eff;
-  background: #f0f9ff;
-  box-shadow: 0 2px 12px rgba(64, 158, 255, 0.2);
+  border-color: #667eea;
+  background: linear-gradient(to bottom, #f0f5ff, #e6ecff);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+}
+
+.algorithm-card.selected::before {
+  transform: translateY(0);
 }
 
 .algorithm-header {

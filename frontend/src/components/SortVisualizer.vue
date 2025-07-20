@@ -381,30 +381,56 @@ defineExpose({
 
 .element-bar {
   width: 30px;
-  background: #3498db;
-  border-radius: 4px 4px 0 0;
-  transition: all 0.3s ease;
+  background: linear-gradient(to top, #3498db, #5dade2);
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 20px;
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
 }
 
 .array-element.comparing .element-bar {
-  background: #f39c12;
-  box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+  background: linear-gradient(to top, #f39c12, #f5b041);
+  box-shadow: 0 0 20px rgba(243, 156, 18, 0.6);
+  transform: scale(1.1);
 }
 
 .array-element.swapping .element-bar {
-  background: #e74c3c;
-  box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  background: linear-gradient(to top, #e74c3c, #ec7063);
+  box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+  transform: scale(1.15) rotate(5deg);
 }
 
 .array-element.sorted .element-bar {
-  background: #27ae60;
-  box-shadow: 0 0 10px rgba(39, 174, 96, 0.3);
+  background: linear-gradient(to top, #27ae60, #52be80);
+  box-shadow: 0 0 15px rgba(39, 174, 96, 0.4);
+  animation: sortedPulse 0.6s ease-out;
 }
 
 .array-element.pivot .element-bar {
-  background: #9b59b6;
-  box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+  background: linear-gradient(to top, #9b59b6, #bb8fce);
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+  animation: pivotGlow 1s ease-in-out infinite;
+}
+
+@keyframes sortedPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pivotGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+  }
 }
 
 .legend {

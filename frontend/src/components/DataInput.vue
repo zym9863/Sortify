@@ -259,6 +259,14 @@ watch(manualInput, validateManualInput, { immediate: true });
 .input-card {
   max-width: 600px;
   margin: 0 auto;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.input-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .input-section {
@@ -320,12 +328,20 @@ watch(manualInput, validateManualInput, { immediate: true });
 
 .preview-item {
   background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 4px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 12px;
   font-size: 14px;
   font-weight: 500;
   color: #2c3e50;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.preview-item:hover {
+  background: #f0f9ff;
+  border-color: #409eff;
+  transform: scale(1.05);
 }
 
 .preview-more {
