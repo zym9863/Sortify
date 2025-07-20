@@ -1,0 +1,15 @@
+# Render 部署配置
+services:
+  - type: web
+    name: sortify-backend
+    env: node
+    plan: free
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        fromGroup: web
+      - key: ALLOWED_ORIGINS
+        value: https://sortify.pages.dev

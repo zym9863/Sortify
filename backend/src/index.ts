@@ -4,6 +4,10 @@ import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
+import { config } from 'dotenv';
+
+// 加载环境变量
+config();
 
 // 导入路由
 import sortRoutes from './routes/sort.js';
@@ -17,12 +21,19 @@ const fastify = Fastify({
 
 // 注册插件
 async function registerPlugins() {
+  // 获取允许的源
+  const allowedOrigins = process.env.ALLOWED_ORIGINS 
+    ? process.env.ALLOWED_ORIGINS.split(',')
+    : (process.env.NODE_ENV === 'production' 
+        ? ['https://sortify.pages.dev'] 
+        : true);
+
   // CORS 支持
   await fastify.register(cors, {
-    origin: process.env.NODE_ENV === 'production' 
-      ? ['https://your-domain.com'] 
-      : true,
+    origin: allowedOrigins,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   });
 
   // 安全头
@@ -44,8 +55,12 @@ async function registerPlugins() {
         description: '排序即服务 API 文档',
         version: '1.0.0',
       },
-      host: 'localhost:3000',
-      schemes: ['http'],
+      host: process.env.NODE_ENV === 'production' 
+        ? 'sortify-9sj9.onrender.com' 
+        : 'localhost:3000',
+      schemes: process.env.NODE_ENV === 'production' 
+        ? ['https'] 
+        : ['http'],
       consumes: ['application/json'],
       produces: ['application/json'],
       tags: [
