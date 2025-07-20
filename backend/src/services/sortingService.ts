@@ -356,6 +356,26 @@ export class SortingService {
         spaceComplexity: 'O(1)',
         stability: false,
       },
+      shell: {
+        timeComplexity: { best: 'O(n)', average: 'O(n^{1.5})', worst: 'O(n²)' },
+        spaceComplexity: 'O(1)',
+        stability: false,
+      },
+      counting: {
+        timeComplexity: { best: 'O(n+k)', average: 'O(n+k)', worst: 'O(n+k)' },
+        spaceComplexity: 'O(k)',
+        stability: true,
+      },
+      radix: {
+        timeComplexity: { best: 'O(nk)', average: 'O(nk)', worst: 'O(nk)' },
+        spaceComplexity: 'O(n+k)',
+        stability: true,
+      },
+      bucket: {
+        timeComplexity: { best: 'O(n+k)', average: 'O(n+k)', worst: 'O(n²)' },
+        spaceComplexity: 'O(n+k)',
+        stability: true,
+      },
     };
 
     const info = algorithmInfo[algorithm] || algorithmInfo.bubble;

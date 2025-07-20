@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <div class="statistics" v-if="showStatistics">
+    <div class="statistics" v-if="showStatistics && statistics">
       <el-card class="stats-card">
         <template #header>
           <span>统计信息</span>
@@ -101,15 +101,15 @@
         <div class="stats-grid">
           <div class="stat-item">
             <span class="stat-label">比较次数：</span>
-            <span class="stat-value">{{ statistics.comparisons }}</span>
+            <span class="stat-value">{{ statistics?.comparisons || 0 }}</span>
           </div>
           <div class="stat-item">
             <span class="stat-label">交换次数：</span>
-            <span class="stat-value">{{ statistics.swaps }}</span>
+            <span class="stat-value">{{ statistics?.swaps || 0 }}</span>
           </div>
           <div class="stat-item">
             <span class="stat-label">执行时间：</span>
-            <span class="stat-value">{{ statistics.executionTime.toFixed(2) }}ms</span>
+            <span class="stat-value">{{ statistics?.executionTime?.toFixed(2) || '0.00' }}ms</span>
           </div>
           <div class="stat-item">
             <span class="stat-label">数组大小：</span>

@@ -207,7 +207,7 @@ const toggleAnalysis = () => {
           <SortVisualizer
             :steps="sortSteps"
             :algorithm-name="algorithmDisplayName"
-            :statistics="performanceMetrics"
+            :statistics="performanceMetrics || undefined"
             :show-statistics="true"
             :auto-play="true"
           />
